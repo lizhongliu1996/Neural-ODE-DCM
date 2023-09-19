@@ -1,0 +1,53 @@
+grotMIN=percentile(d1,10);  grotMAX=percentile(d1,90);  d1b=max(min((d1-grotMIN)/(grotMAX-grotMIN),1),0);
+grotMIN=percentile(d2,10);  grotMAX=percentile(d2,90);  d2b=max(min((d2-grotMIN)/(grotMAX-grotMIN),1),0);
+theta1=d1b'*d2b/XT;  theta2=d1b'*(1-d2b)/XT;  theta3=d2b'*(1-d1b)/XT;  theta4=(1-d1b)'*(1-d2b)/XT;
+EEE=(theta1+theta2)*(theta1+theta3);
+max_theta1=min(theta1+theta2,theta1+theta3);  min_theta1=max(0,2*theta1+theta2+theta3-1);
+if (theta1>EEE), DDD=0.5+(theta1-EEE)/(2*(max_theta1-EEE)); else, DDD=0.5-(theta1-EEE)/(2*(EEE-min_theta1)); end;
+kappa=(theta1-EEE)/(DDD*(max_theta1-EEE) + (1-DDD)*(EEE-min_theta1));  urgh(kappa,'Patel Kappa');
+if (theta2>theta3), tau_12=1-(theta1+theta3)/(theta1+theta2); else, tau_12=(theta1+theta2)/(theta1+theta3)-1; end;
+urgh(-tau_12,'Patel Tau');  urgh(-kappa * tau_12,'Tau x Kappa');
+
+grotMIN=percentile(d1,10);  grotMAX=percentile(d1,90);  d1b=max(min((d1-grotMIN)/(grotMAX-grotMIN),1),0);
+grotMIN=percentile(d2,10);  grotMAX=percentile(d2,90);  d2b=max(min((d2-grotMIN)/(grotMAX-grotMIN),1),0);
+d1b=double(d1b>0.25); d2b=double(d2b>0.25);
+theta1=d1b'*d2b/XT;  theta2=d1b'*(1-d2b)/XT;  theta3=d2b'*(1-d1b)/XT;  theta4=(1-d1b)'*(1-d2b)/XT;
+EEE=(theta1+theta2)*(theta1+theta3);
+max_theta1=min(theta1+theta2,theta1+theta3);  min_theta1=max(0,2*theta1+theta2+theta3-1);
+if (theta1>EEE), DDD=0.5+(theta1-EEE)/(2*(max_theta1-EEE)); else, DDD=0.5-(theta1-EEE)/(2*(EEE-min_theta1)); end;
+kappa=(theta1-EEE)/(DDD*(max_theta1-EEE) + (1-DDD)*(EEE-min_theta1));  urgh(kappa,'Patel Kappa bin0.25');
+if (theta2>theta3), tau_12=1-(theta1+theta3)/(theta1+theta2); else, tau_12=(theta1+theta2)/(theta1+theta3)-1; end;
+urgh(-tau_12,'Patel Tau bin0.25');  urgh(-kappa * tau_12,'Tau x Kappa bin0.25');
+
+grotMIN=percentile(d1,10);  grotMAX=percentile(d1,90);  d1b=max(min((d1-grotMIN)/(grotMAX-grotMIN),1),0);
+grotMIN=percentile(d2,10);  grotMAX=percentile(d2,90);  d2b=max(min((d2-grotMIN)/(grotMAX-grotMIN),1),0);
+d1b=double(d1b>0.5); d2b=double(d2b>0.5);
+theta1=d1b'*d2b/XT;  theta2=d1b'*(1-d2b)/XT;  theta3=d2b'*(1-d1b)/XT;  theta4=(1-d1b)'*(1-d2b)/XT;
+EEE=(theta1+theta2)*(theta1+theta3);
+max_theta1=min(theta1+theta2,theta1+theta3);  min_theta1=max(0,2*theta1+theta2+theta3-1);
+if (theta1>EEE), DDD=0.5+(theta1-EEE)/(2*(max_theta1-EEE)); else, DDD=0.5-(theta1-EEE)/(2*(EEE-min_theta1)); end;
+kappa=(theta1-EEE)/(DDD*(max_theta1-EEE) + (1-DDD)*(EEE-min_theta1));  urgh(kappa,'Patel Kappa bin0.5');
+if (theta2>theta3), tau_12=1-(theta1+theta3)/(theta1+theta2); else, tau_12=(theta1+theta2)/(theta1+theta3)-1; end;
+urgh(-tau_12,'Patel Tau bin0.5');  urgh(-kappa * tau_12,'Tau x Kappa bin0.5');
+
+grotMIN=percentile(d1,10);  grotMAX=percentile(d1,90);  d1b=max(min((d1-grotMIN)/(grotMAX-grotMIN),1),0);
+grotMIN=percentile(d2,10);  grotMAX=percentile(d2,90);  d2b=max(min((d2-grotMIN)/(grotMAX-grotMIN),1),0);
+d1b=double(d1b>0.75); d2b=double(d2b>0.75);
+theta1=d1b'*d2b/XT;  theta2=d1b'*(1-d2b)/XT;  theta3=d2b'*(1-d1b)/XT;  theta4=(1-d1b)'*(1-d2b)/XT;
+EEE=(theta1+theta2)*(theta1+theta3);
+max_theta1=min(theta1+theta2,theta1+theta3);  min_theta1=max(0,2*theta1+theta2+theta3-1);
+if (theta1>EEE), DDD=0.5+(theta1-EEE)/(2*(max_theta1-EEE)); else, DDD=0.5-(theta1-EEE)/(2*(EEE-min_theta1)); end;
+kappa=(theta1-EEE)/(DDD*(max_theta1-EEE) + (1-DDD)*(EEE-min_theta1));  urgh(kappa,'Patel Kappa bin0.75');
+if (theta2>theta3), tau_12=1-(theta1+theta3)/(theta1+theta2); else, tau_12=(theta1+theta2)/(theta1+theta3)-1; end;
+urgh(-tau_12,'Patel Tau bin0.75');  urgh(-kappa * tau_12,'Tau x Kappa bin0.75');
+
+grotMIN=percentile(d1,10);  grotMAX=percentile(d1,90);  d1b=max(min((d1-grotMIN)/(grotMAX-grotMIN),1),0);
+grotMIN=percentile(d2,10);  grotMAX=percentile(d2,90);  d2b=max(min((d2-grotMIN)/(grotMAX-grotMIN),1),0);
+d1b=double(d1b>0.9); d2b=double(d2b>0.9);
+theta1=d1b'*d2b/XT;  theta2=d1b'*(1-d2b)/XT;  theta3=d2b'*(1-d1b)/XT;  theta4=(1-d1b)'*(1-d2b)/XT;
+EEE=(theta1+theta2)*(theta1+theta3);
+max_theta1=min(theta1+theta2,theta1+theta3);  min_theta1=max(0,2*theta1+theta2+theta3-1);
+if (theta1>EEE), DDD=0.5+(theta1-EEE)/(2*(max_theta1-EEE)); else, DDD=0.5-(theta1-EEE)/(2*(EEE-min_theta1)); end;
+kappa=(theta1-EEE)/(DDD*(max_theta1-EEE) + (1-DDD)*(EEE-min_theta1));  urgh(kappa,'Patel Kappa bin0.9');
+if (theta2>theta3), tau_12=1-(theta1+theta3)/(theta1+theta2); else, tau_12=(theta1+theta2)/(theta1+theta3)-1; end;
+    urgh(-tau_12,'Patel Tau bin0.9');  urgh(-kappa * tau_12,'Tau x Kappa bin0.9');
