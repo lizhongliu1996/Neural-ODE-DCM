@@ -1,5 +1,5 @@
 # Neural-ODE-DCM
-this is the repository that contain the code of my dissertation
+this is the repository that contain the code of my dissertation, the goal is to accurate estimated brain connectivity network matrix from fMRI timeseries data with ground unknown.
 
 This project focuses on applying Graph Neural Networks (GNNs) for time series analysis, with a specific focus on functional Magnetic Resonance Imaging (fMRI) data. The main objectives of this project are:
 
